@@ -26,6 +26,11 @@ export function TaskForm({ onSubmit }: TaskFormProps) {
     setStatus('pending');
     setErrors({ title: '', dueDate: '' });
   };
+  return (
+    <form onSubmit={handleSubmit}>
+        <div></div>
+    </form>
+  )
 
 }
 
