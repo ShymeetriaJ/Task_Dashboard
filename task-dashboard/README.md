@@ -31,6 +31,7 @@ https://react.dev/reference/react/useState
 https://react.dev/reference/react/useCallback
 https://devhints.io/reac
 stackoverflow.com/sort-an-array
+Discord group
 
 # Troubleshooting:
 
