@@ -36,3 +36,16 @@ export function filterByPriority(tasks: Task[], priority: 'low' | 'medium' | 'hi
   }
   return tasks.filter(task => task.priority === priority);
 }
+// Sorting utility functions
+export function sortByPriority(tasks: Task[]): Task[] {
+  const priorityOrder = { high: 1, medium: 2, low: 3 };
+  return [...tasks].sort((a, b) => {
+    return priorityOrder[a.priority] - priorityOrder[b.priority];
+  });
+}
+export function sortByStatus(tasks: Task[]): Task[] {
+  const statusOrder = { pending: 1, 'in-progress': 2, completed: 3 };
+  return [...tasks].sort((a, b) => {
+    return statusOrder[a.status] - statusOrder[b.status];
+  });
+}
