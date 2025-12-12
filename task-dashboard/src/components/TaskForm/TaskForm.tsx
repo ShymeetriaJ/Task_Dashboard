@@ -15,7 +15,17 @@ export function TaskForm({ onSubmit }: TaskFormProps) {
         setErrors({ title: titleError, dueDate: dateError});
         return;
     }
-  }
+    // submit the valid form
+    onSubmit({title, description, dueDate, priority, status});
+   
+    //  clear the form
+    setTitle('');
+    setDescription('');
+    setDueDate('');
+    setPriority('medium');
+    setStatus('pending');
+    setErrors({ title: '', dueDate: '' });
+  };
 
 }
 
