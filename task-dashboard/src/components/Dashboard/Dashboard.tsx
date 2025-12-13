@@ -1,13 +1,11 @@
 import React, { useState } from 'react';
-import { Task, TaskStatus } from '../types/index'
-import { TaskFilter } from './TaskFilter';
-import { TaskList } from './TaskList';
-import { TaskForm } from './TaskForm';
-
-
+import type { Task, TaskStatus } from '../../types/index'
+import { TaskFilter } from '../TaskFilter/TaskFilter';
+import { TaskList } from '../TaskList/TaskList';
+import { TaskForm } from '../TaskForm/TaskForm';
 
 export function Dashboard() {
-    const loadTasksRomStorage = (): Task[] => {
+    const loadTasksFromStorage = (): Task[] => {
         const savedTasks = localStorage.getItem('tasks');
         if (savedTasks) {
             return JSON.parse(savedTasks);
@@ -15,7 +13,7 @@ export function Dashboard() {
         return [];
     };
 
-    const [tasks, setTasks] = useState<Task[]>([]);
+    const [tasks, setTasks] = useState<Task[]>(loadTasksFromStorage());
     const [filters, setFilters] = useState<{
         status?: TaskStatus;
         priority?: 'low' | 'medium' | 'high';}>({});
@@ -54,11 +52,15 @@ export function Dashboard() {
     setFilters(newFilters);
   };
 
-
     const totalTasks = tasks.length;
     const completedTasks = tasks.filter(task => task.status === 'completed').length;
     const pendingTasks = tasks.filter(task => task.status === 'pending').length;
 
+    const filteredTasks = tasks.filter(task => {
+    if (filters.status && task.status !== filters.status) return false;
+    if (filters.priority && task.priority !== filters.priority) return false;
+    return true;
+});
 
     return (
         <div>
@@ -84,12 +86,11 @@ export function Dashboard() {
       <div>
         <h2>Your Tasks</h2>
         <TaskList 
-          tasks={FilteredTasks} 
+          tasks={filteredTasks} 
           onStatusChange={handleStatusChange} 
           onDelete={handleDelete} 
         />
       </div>
     </div>
-    )
-
+    );
 }

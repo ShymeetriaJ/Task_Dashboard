@@ -1,4 +1,4 @@
-import { Task, TaskStatus } from '../types/index'
+import type { Task, TaskStatus } from '../types/index'
 
 // Date formatting utility function
 export function formatDate(dateString: string): string {

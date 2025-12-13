@@ -1,5 +1,5 @@
-import React, ( useState) from "react";
-import { TaskFilterProps } from "../../types";
+import { useState } from "react";
+import type { TaskFilterProps, TaskStatus } from "../../types/index";
 
 export function TaskFilter({ onFilterChange }: TaskFilterProps) {
   const [status, setStatus] = useState<TaskStatus | 'all'>('all');
@@ -16,6 +16,7 @@ export function TaskFilter({ onFilterChange }: TaskFilterProps) {
     setPriority(newPriority);
     onFilterChange({
         status: status !== 'all' ? newPriority : undefined,
+        priority: newPriority !== 'all' ? newPriority : undefined
     });
   };
   return (
@@ -39,9 +40,6 @@ export function TaskFilter({ onFilterChange }: TaskFilterProps) {
               <option value="high">High</option>
             </select>
         </div>
-
-        <button type="submit">Search</button>
-        
     </div>
   );
 }

@@ -1,42 +1,106 @@
-#root {
-  max-width: 1280px;
-  margin: 0 auto;
-  padding: 2rem;
+.Dashboard-app {
+  min-height: 100vh;
+  background: linear-gradient(135deg, #5925e7 0%, #764ba2 50%, #9c06ac 100%);
+  padding: 20px;
+}
+/* Header */
+h1 {
   text-align: center;
+  color: white;
+  font-size: 3rem;
+  font-weight: bold;
+  margin: 20px 0 40px 0;
+  text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.3);
+  letter-spacing: 2px;
+}
+/* h2 text */
+h2 {
+  color: white;
+  font-size: 1.5rem;
+  margin-bottom: 15px;
+}
+/* h3 text */
+h3 {
+  color: white;
+  font-size: 1.3rem;
+  margin-bottom: 10px;
+}
+/* Form Styling */
+form {
+  background: rgba(255, 255, 255, 0.1);
+  padding: 20px;
+  border-radius: 10px;
+  margin-bottom: 30px;
 }
 
-.logo {
-  height: 6em;
-  padding: 1.5em;
-  will-change: filter;
-  transition: filter 300ms;
-}
-.logo:hover {
-  filter: drop-shadow(0 0 2em #646cffaa);
-}
-.logo.react:hover {
-  filter: drop-shadow(0 0 2em #61dafbaa);
+form > div {
+  display: flex;
+  gap: 15px;
+  flex-wrap: wrap;
+  align-items: flex-end;
+  margin-bottom: 15px;
 }
 
-@keyframes logo-spin {
-  from {
-    transform: rotate(0deg);
-  }
-  to {
-    transform: rotate(360deg);
-  }
+form > div > div {
+  display: flex;
+  flex-direction: column;
+  flex: 1;
+  min-width: 150px;
 }
 
-@media (prefers-reduced-motion: no-preference) {
-  a:nth-of-type(2) .logo {
-    animation: logo-spin infinite 20s linear;
-  }
+label {
+  color: white;
+  font-weight: bold;
+  margin-bottom: 5px;
+  font-size: 0.9rem;
 }
 
-.card {
-  padding: 2em;
+input[type="text"],
+input[type="date"],
+textarea,
+select {
+  padding: 10px;
+  border: 2px solid rgba(255, 255, 255, 0.3);
+  border-radius: 5px;
+  background: rgba(255, 255, 255, 0.9);
+  font-size: 1rem;
+  transition: border-color 0.3s;
 }
 
-.read-the-docs {
-  color: #888;
+input[type="text"]:focus,
+input[type="date"]:focus,
+textarea:focus,
+select:focus {
+  outline: none;
+  border-color: #f093fb;
 }
+
+textarea {
+  resize: vertical;
+  min-height: 60px;
+}
+
+button {
+  padding: 10px 20px;
+  background: #667eea;
+  color: white;
+  border: none;
+  border-radius: 5px;
+  font-size: 1rem;
+  font-weight: bold;
+  cursor: pointer;
+  transition: background 0.3s;
+}
+
+button:hover {
+  background: #764ba2;
+}
+
+/* Error messages */
+span {
+  color: #ff6b6b;
+  font-size: 0.85rem;
+  margin-top: 3px;
+}
+
+
