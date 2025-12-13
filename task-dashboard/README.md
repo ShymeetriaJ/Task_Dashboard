@@ -7,7 +7,7 @@ December 11, 2025
 
 # Project Description: 
  
-
+In this assessment, I applied the skills I developed throughout my React training to build a functional, real-world dashboard application. This project tested my understanding of React components, state management, TypeScript integration, form handling, and component composition.
 
 # Links, Usage, and Instructions:
 
@@ -17,7 +17,9 @@ December 11, 2025
 
 
 # My reflection:
-
+How you implemented React and TypeScript features
+The challenges you encountered and how you overcame them
+Your approach to component composition and state management
 
 
 

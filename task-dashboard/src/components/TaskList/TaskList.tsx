@@ -1,6 +1,7 @@
 import  { useState } from 'react';
 import { sortByStatus, sortByPriority } from '../../utils/taskUtils';
 import type { Task, TaskListProps } from '../../types/index';
+import { TaskItem } from './TaskItem'
 
 export function TaskList({tasks, onStatusChange, onDelete}: TaskListProps) {
     const [sortBy, setSortBy] = useState<'priority' | 'status'>('priority');
@@ -31,24 +32,12 @@ export function TaskList({tasks, onStatusChange, onDelete}: TaskListProps) {
         ) : (
     <ul>
         {sortedTasks.map((task) => (
-            <li key={task.id}>
-                <h4>{task.title}</h4>
-                <p>{task.description}</p>
-                <p>Priority: {task.priority}</p>
-                <p>Status: {task.status}</p>
-                <div>
-                <label>Change Status:</label>
-                <select 
-                    value={task.status} 
-                    onChange={(e) => onStatusChange(task.id, e.target.value as 'pending' | 'in-progress' | 'completed')}>
-                    <option value="pending">Pending</option>
-                    <option value="in-progress">In Progress</option>
-                    <option value="completed">Completed</option>
-                </select>
-                </div>
-                <button onClick={() => onDelete(task.id)}>Delete</button>
-            </li>))}
-    </ul>)}
+            <TaskItem
+            key={task.id}
+            task={task}
+            onStatusChange={onStatusChange}
+            onDelete={onDelete} />))}
+    </ul>)}      
 </div>
 );
 }
