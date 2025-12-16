@@ -102,5 +102,30 @@ span {
   font-size: 0.85rem;
   margin-top: 3px;
 }
+/* filter */
+.filter-section > div {
+  display: flex;
+  gap: 20px;
+  align-items: center;
+  flex-wrap: wrap;
+}
 
+.filter-section > div > div {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+}
+.filter-section label {
+  color: white;
+  font-weight: bold;
+  margin: 0;
+}
+
+.filter-section select {
+  padding: 8px 12px;
+  border-radius: 5px;
+  border: 2px solid rgba(255, 255, 255, 0.3);
+  background: rgba(255, 255, 255, 0.9);
+  margin: 0;
+}
 

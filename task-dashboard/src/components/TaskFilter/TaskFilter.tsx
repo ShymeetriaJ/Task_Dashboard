@@ -15,13 +15,14 @@ export function TaskFilter({ onFilterChange }: TaskFilterProps) {
   const handlePriorityChange = (newPriority: 'low' | 'medium' | 'high' | 'all') => {
     setPriority(newPriority);
     onFilterChange({
-        status: status !== 'all' ? newPriority : undefined,
+        status: status !== 'all' ? status : undefined,
         priority: newPriority !== 'all' ? newPriority : undefined
     });
   };
   return (
     <div>
         <h3>Filter Tasks</h3>
+      <div>
         <div>
             <label>Status:</label>
             <select value={status} onChange={(e) => handleStatusChange(e.target.value as TaskStatus | 'all')}>
@@ -40,6 +41,7 @@ export function TaskFilter({ onFilterChange }: TaskFilterProps) {
               <option value="high">High</option>
             </select>
         </div>
+       </div> 
     </div>
   );
 }

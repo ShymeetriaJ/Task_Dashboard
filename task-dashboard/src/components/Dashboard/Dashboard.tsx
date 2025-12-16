@@ -78,7 +78,7 @@ export function Dashboard() {
         <TaskForm onSubmit={handleAddTask} />
       </div>
 
-      <div>
+      <div className='filter-section'>
         <h2>Filter Tasks</h2>
         <TaskFilter onFilterChange={handleFilterChange} />
       </div>
